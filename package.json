@@ -4,7 +4,8 @@
   "description": "Aprendiendo a Crear REST APIs",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./index.js"
+    "start": "nodemon ./index.js",
+    "format": "prettier --write \"**/*.js\""
   },
   "author": "Ronald Lima",
   "license": "ISC",
@@ -13,6 +14,21 @@
     "mongoose": "^8.2.1"
   },
   "devDependencies": {
-    "nodemon": "^3.1.0"
+    "autoprefixer": "^10.4.18",
+    "husky": "^9.0.11",
+    "nodemon": "^3.1.0",
+    "prettier": "^3.2.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ]
   }
+
 }
